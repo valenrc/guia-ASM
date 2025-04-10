@@ -25,6 +25,9 @@ abi_enforcer_main: main.c $(ABI_OBJS)
 tester.o: tester.c ABI.h test-utils.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
+main.o: main.c ABI.h test-utils.h
+	$(CC) $(CFLAGS) -c $< -o $@
+
 Memoria_c.o: Memoria.c Memoria.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
