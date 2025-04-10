@@ -6,7 +6,7 @@ NASM_ABI_FLAGS=$(NASMFLAGS) -p "abi_enforcer.mac"
 STRUCTS_FILE=structs.h
 STRUCTS_PATH="../3\ -\ Alineación\ y\ Estructuras"
 
-all: main tester abi_tester
+all: main tester abi_enforcer_tester abi_enforcer_main 
 
 C_OBJS := Estructuras_c.o
 ASM_OBJS := Estructuras_asm.o Estructuras_c.o
@@ -15,17 +15,19 @@ ABI_OBJS := Estructuras_abi.o abi_enforcer_regsave.o Estructuras_c.o
 tester: tester.c $(ASM_OBJS)
 	$(CC) $(CFLAGS) $^ -o $@
 
-tester.o: tester.c Estructuras.h test-utils.h
-	$(CC) $(CFLAGS) -c $< -o $@
-
-main.o: main.c Estructuras.h test-utils.h
-	$(CC) $(CFLAGS) -c $< -o $@
+main: main.c $(ASM_OBJS)
+	$(CC) $(CFLAGS) $^ -o $@
 
 abi_enforcer_tester: tester.c $(ABI_OBJS)
 	$(CC) $(CFLAGS) -DWITH_ABI_ENFORCER=1 $^ -o $@
 
 abi_enforcer_main: main.c $(ABI_OBJS)
 	$(CC) $(CFLAGS) -DWITH_ABI_ENFORCER=1 $^ -o $@
+tester.o: tester.c Estructuras.h test-utils.h
+	$(CC) $(CFLAGS) -c $< -o $@
+
+main.o: main.c Estructuras.h test-utils.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 Estructuras_c.o: Estructuras.c Estructuras.h
 	$(CC) $(CFLAGS) -c $< -o $@
