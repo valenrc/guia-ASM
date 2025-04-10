@@ -22,10 +22,10 @@ abi_enforcer_tester: tester.c $(ABI_OBJS)
 abi_enforcer_main: main.c $(ABI_OBJS)
 	$(CC) $(CFLAGS) -DWITH_ABI_ENFORCER=1 $^ -o $@
 
-tester.o: tester.c ABI.h test-utils.h
+tester.o: tester.c Memoria.h test-utils.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-main.o: main.c ABI.h test-utils.h
+main.o: main.c Memoria.h test-utils.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 Memoria_c.o: Memoria.c Memoria.h

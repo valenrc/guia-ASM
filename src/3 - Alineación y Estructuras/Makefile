@@ -18,7 +18,7 @@ tester: tester.c $(ASM_OBJS)
 tester.o: tester.c Estructuras.h test-utils.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-main.o: main.c ABI.h test-utils.h
+main.o: main.c Estructuras.h test-utils.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 abi_enforcer_tester: tester.c $(ABI_OBJS)

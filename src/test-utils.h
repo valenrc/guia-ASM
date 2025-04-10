@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 static size_t test__count = 0;
 static size_t test__succeed__count = 0;
