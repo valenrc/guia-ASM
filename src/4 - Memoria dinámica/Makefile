@@ -7,7 +7,7 @@ NASM_ABI_FLAGS=$(NASMFLAGS) -p "abi_enforcer.mac"
 all: main tester abi_enforcer_tester abi_enforcer_main
 
 C_OBJS := Memoria_c.o
-ASM_OBJS := Memoria_asm.o
+ASM_OBJS := Memoria_asm.o Memoria_c.o
 ABI_OBJS := Memoria_abi.o abi_enforcer_regsave.o Memoria_c.o
 
 tester: tester.c $(ASM_OBJS)

@@ -4,6 +4,7 @@
 #include <string.h>
 #include <assert.h>
 
+#include "../test-utils.h"
 #include "Estructuras.h"
 
 int main() {

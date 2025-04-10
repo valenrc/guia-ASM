@@ -9,7 +9,7 @@ STRUCTS_PATH="../3\ -\ Alineación\ y\ Estructuras"
 all: main tester abi_tester
 
 C_OBJS := Estructuras_c.o
-ASM_OBJS := Estructuras_asm.o
+ASM_OBJS := Estructuras_asm.o Estructuras_c.o
 ABI_OBJS := Estructuras_abi.o abi_enforcer_regsave.o Estructuras_c.o
 
 tester: tester.c $(ASM_OBJS)
