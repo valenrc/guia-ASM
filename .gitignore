@@ -4,6 +4,7 @@
 
 src/test_utils/venv
 src/test_utils/*.txt
+!src/test_utils/requirements.txt
 
 !src/1\ -\ Introducción
 src/1\ -\ Introducción/*
