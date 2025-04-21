@@ -127,15 +127,12 @@ alternate_sum_8:
 product_2_f:
   push rbp
   mov rbp, rsp
-
+  pxor xmm1, xmm1
   movd xmm1, esi      ; guardar x1 en xmm1
   cvtdq2ps xmm1, xmm1 ; convertirlo a float
   mulps xmm0, xmm1    ; multiplicarlo por f1 (xmm0)
   cvttps2dq xmm0, xmm0 ; convertir el resultado a entero de 32 bits
-  movd eax, xmm0       ; guardar el resultado en eax
-
-  ; escribirlo a la direccion en rdi
-  mov [rdi], eax
+  movd [rdi], xmm0       ; guardar el resultado en destination
 
   pop rbp
 	ret

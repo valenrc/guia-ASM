@@ -53,7 +53,6 @@ void shuffle(uint32_t max){
 			result += nodo->longitud;
 			nodo = nodo->next;
 		}
-
 		TEST_ASSERT_EQUALS(uint32_t, result, TEST_CALL_I(cantidad_total_de_elementos, &lista));
 
 		for(int j=0; j<ARR_LENGTH; j++){
