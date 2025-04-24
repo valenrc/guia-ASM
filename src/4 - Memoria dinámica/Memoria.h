@@ -40,7 +40,7 @@ int32_t strCmp(char *a, char *b);
 
 // Genera una copia del string pasado por parámetro. El puntero pasado siempre es válido
 // aunque podría corresponderse a la cadena vacía.
-char *strClone(char *a);
+char* strClone(char *a);
 
 // Borra el string pasado por parámetro. Esta función es equivalente a la función free.
 void strDelete(char *a);

@@ -9,5 +9,9 @@
 
 int main() {
 	/* Acá pueden realizar sus propias pruebas */
+	char* a = "taaa";
+	char* b = "taaab";
+	uint32_t res = strCmp(a,b);
+	printf("%d\n", res);
 	return 0;
 }
