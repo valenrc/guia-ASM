@@ -1,6 +1,6 @@
 #include "Memoria.h"
 
-/* Pueden programar alguna rutina auxiliar acá */
+/* Pueden programar alguna rutina auxiliar acá
 char* strClone(char* a){
     uint32_t len = strLen(a);
     char* clone = (char*)malloc(len+1); // len de a + '0'
@@ -11,3 +11,4 @@ char* strClone(char* a){
 
     return clone;
 }
+*/

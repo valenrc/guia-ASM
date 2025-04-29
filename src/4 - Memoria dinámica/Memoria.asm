@@ -72,11 +72,48 @@ strCmp:
 	ret
 
 ; char* strClone(char* a)
-;strClone:
+; a[rdi]
+strClone:
+	push rbp
+	mov rbp, rsp
+	push r12
+	push r13
+
+	mov r12, rdi	; guardo a
+	call strLen		; long del string - ya esta en rdi
+	inc eax 		; sumo +1 a la long del string
+	mov r13d, eax   ; guardo len+1 en r13d
+
+	mov edi, eax	; lo paso como parametro a malloc
+	call malloc
+
+	; copio el string a
+	xor r8, r8
+	xor rdi, rdi ; iterador
+	.loop:
+		cmp edi, r13d
+		je .fin
+		mov BYTE r8b, [r12 + rdi]
+
+		mov BYTE [eax + edi], r8b ; copio de a char en destino
+		inc rdi
+		jmp .loop
+
+	.fin:
+	pop r13
+	pop r12
+	pop rbp
+	ret
 
 ; void strDelete(char* a)
+; a[rdi]
 strDelete:
-	ret
+	push rbp
+	mov rbp, rsp
+
+	call free
+
+	pop rbp
 
 ; void strPrint(char* a, FILE* pFile)
 strPrint:
